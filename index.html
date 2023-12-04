@@ -1,34 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Happy New Year 2023</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="https://cdn2.vectorstock.com/i/1000x1000/50/46/404-error-not-found-page-with-restart-icon-vector-17035046.jpg" type="">
+    <title>404</title>
+    <style type="text/css">
+        @import 'https://fonts.googleapis.com/css?family=Inconsolata';
+ html {
+     min-height: 100%;	
+}
+ body {		
+     box-sizing: border-box;
+     height: 100%;
+     background-color: #000;
+     background-image: radial-gradient(#11581e, #041607), url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+     background-repeat: no-repeat;
+     background-size: cover;
+     font-family: 'Inconsolata', Helvetica, sans-serif;
+     font-size: 1.5rem;
+     color: rgba(128, 255, 128, 0.8);
+     text-shadow: 0 0 1ex rgba(51, 255, 51, 1), 0 0 4px rgba(255, 255, 255, 0.8);
+}
+ .noise {
+     pointer-events: none;
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+     background-repeat: no-repeat;
+     background-size: cover;
+     z-index: -1;
+     opacity: 0.02;
+}
+ .overlay {
+     pointer-events: none;
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+     background-size: auto 4px;
+     z-index: 1;
+}
+ .overlay::before {
+     content: "";
+     pointer-events: none;
+     position: absolute;
+     display: block;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     width: 100%;
+     height: 100%;
+     background-image: linear-gradient(0deg, transparent 0%, rgba(32, 128, 32, 0.2) 2%, rgba(32, 128, 32, 0.8) 3%, rgba(32, 128, 32, 0.2) 3%, transparent 100%);
+     background-repeat: no-repeat;
+     animation: scan 7.5s linear 0s infinite;
+}
+ @keyframes scan {
+     0% {
+         background-position: 0 -100vh;
+    }
+     35%, 100% {
+         background-position: 0 100vh;
+    }
+}
+ .terminal {
+     box-sizing: inherit;
+     position: absolute;
+     height: 100%;
+     width: 1000px;
+     max-width: 100%;
+     padding: 4rem;
+     text-transform: uppercase;
+}
+ .output {
+     color: rgba(128, 255, 128, 0.8);
+     text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8);
+}
+ .output::before {
+     content: "> ";
+}
+/* .input {
+     color: rgba(192, 255, 192, 0.8);
+     text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8);
+}
+ .input::before {
+     content: "$ ";
+}
+ */
+ a {
+     color: #fff;
+     text-decoration: none;
+}
+ a::before {
+     content: "[";
+}
+ a::after {
+     content: "]";
+}
+ .errorcode {
+     color: white;
+}
+ 
+    </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h1>Thời gian chỉ còn...</h1>
-        <div class="box-time">
-            <div class="time">
-                <p>Ngày</p>
-                <span id="days">day</span>
-            </div>
-            <div class="time">
-                <p>Giờ</p>
-                <span id="hours">hours</span>
-            </div>
-            <div class="time">
-                <p>Phút</p>
-                <span id="minutes">minute</span>
-            </div>
-            <div class="time">
-                <p>Giây</p>
-                <span id="seconds">seconds</span>
-            </div>
+<div class="noise"></div>
+<div class="overlay"></div>
+<div class="terminal">
+  <h1>Error <span class="errorcode">404</span></h1>
+  <p class="output">The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
+  <p class="output">Please try to <a href="https://www.google.com/">go back</a> or <a href="https://facebook.com/Phatdeptry.IT">return to the support</a>.</p>
+  <p class="output">Good luck.</p>
+</div>
+<!--
+<script>
+    var img = new Image();
+img.src = "https://i.imgur.com/R9XUjfF.png";
+
+			function Sakura(x, y, s, r, fn) {
+				this.x = x;
+				this.y = y;
+				this.s = s;
+				this.r = r;
+				this.fn = fn;
+			}
+
+			Sakura.prototype.draw = function(cxt) {
+				cxt.save();
+				var xc = 40 * this.s / 4;
+				cxt.translate(this.x, this.y);
+				cxt.rotate(this.r);
+				cxt.drawImage(img, 0, 0, 40 * this.s, 40 * this.s)
+				cxt.restore();
+			}
+
+			Sakura.prototype.update = function() {
+				this.x = this.fn.x(this.x, this.y);
+				this.y = this.fn.y(this.y, this.y);
+				this.r = this.fn.r(this.r);
+				if(this.x > window.innerWidth ||
+					this.x < 0 ||
+					this.y > window.innerHeight ||
+					this.y < 0
+				) {
+					this.r = getRandom('fnr');
+					if(Math.random() > 0.4) {
+						this.x = getRandom('x');
+						this.y = 0;
+						this.s = getRandom('s');
+						this.r = getRandom('r');
+					} else {
+						this.x = window.innerWidth;
+						this.y = getRandom('y');
+						this.s = getRandom('s');
+						this.r = getRandom('r');
+					}
+				}
+			}
+
+			SakuraList = function() {
+				this.list = [];
+			}
+			SakuraList.prototype.push = function(sakura) {
+				this.list.push(sakura);
+			}
+			SakuraList.prototype.update = function() {
+				for(var i = 0, len = this.list.length; i < len; i++) {
+					this.list[i].update();
+				}
+			}
+			SakuraList.prototype.draw = function(cxt) {
+				for(var i = 0, len = this.list.length; i < len; i++) {
+					this.list[i].draw(cxt);
+				}
+			}
+			SakuraList.prototype.get = function(i) {
+				return this.list[i];
+			}
+			SakuraList.prototype.size = function() {
+				return this.list.length;
+			}
+
+			function getRandom(option) {
+				var ret, random;
+				switch(option) {
+					case 'x':
+						ret = Math.random() * window.innerWidth;
+						break;
+					case 'y':
+						ret = Math.random() * window.innerHeight;
+						break;
+					case 's':
+						ret = Math.random();
+						break;
+					case 'r':
+						ret = Math.random() * 5;
+						break;
+					case 'fnx':
+						random = -0.5 + Math.random() * 1;
+						ret = function(x, y) {
+							return x + 0.5 * random - 1;
+						};
+						break;
+					case 'fny':
+						random = 0.5 + Math.random() * 0.5
+						ret = function(x, y) {
+							return y + random;
+						};
+						break;
+					case 'fnr':
+						random = Math.random() * 0.01;
+						ret = function(r) {
+							return r + random;
+						};
+						break;
+				}
+				return ret;
+			}
+
+			function startSakura() {
+
+				requestAnimationFrame = window.requestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					window.oRequestAnimationFrame;
+				var canvas = document.createElement('canvas'),
+					cxt;
+				staticx = true;
+				canvas.height = window.innerHeight;
+				canvas.width = window.innerWidth;
+				canvas.setAttribute('style', 'position: fixed;left: 0;top: 0;pointer-events: none;');
+				canvas.setAttribute('id', 'canvas_sakura');
+				document.getElementsByTagName('body')[0].appendChild(canvas);
+				cxt = canvas.getContext('2d');
+				var sakuraList = new SakuraList();
+				for(var i = 0; i <script 50; i++) {
+					var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
+					randomX = getRandom('x');
+					randomY = getRandom('y');
+					randomR = getRandom('r');
+					randomS = getRandom('s');
+					randomFnx = getRandom('fnx');
+					randomFny = getRandom('fny');
+					randomFnR = getRandom('fnr');
+					sakura = new Sakura(randomX, randomY, randomS, randomR, {
+						x: randomFnx,
+						y: randomFny,
+						r: randomFnR
+					});
+					sakura.draw(cxt);
+					sakuraList.push(sakura);
+				}
+				stop = requestAnimationFrame(function() {
+					cxt.clearRect(0, 0, canvas.width, canvas.height);
+					sakuraList.update();
+					sakuraList.draw(cxt);
+					stop = requestAnimationFrame(arguments.callee);
+				})
+			}
+
+			window.onresize = function() {
+				var canvasSnow = document.getElementById('canvas_snow');
+				canvasSnow.width = window.innerWidth;
+				canvasSnow.height = window.innerHeight;
+			}
+
+			img.onload = function() {
+				startSakura();
+			}
+
+			function stopp() {
+				if(staticx) {
+					var child = document.getElementById("canvas_sakura");
+					child.parentNode.removeChild(child);
+					window.cancelAnimationFrame(stop);
+					staticx = false;
+				} else {
+					startSakura();
+				}
+			}
+    </script>
+	-->
+        <style>
+            #snowflakeContainer{position:absolute;left:0px;top:0px;}
+            .snowflake{padding-left:15px;font-size:14px;line-height:24px;position:fixed;color:#ede3e3;user-select:none;z-index:1000;-moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;}
+            .snowflake:hover {cursor:default}
+        </style>
+        <div id='snowflakeContainer'>
+        <p class='snowflake'>❄</p>
         </div>
-    </div>
+        <script style='text/javascript'>
+            //<![CDATA[
+            var requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var transforms=["transform","msTransform","webkitTransform","mozTransform","oTransform"];var transformProperty=getSupportedPropertyName(transforms);var snowflakes=[];var browserWidth;var browserHeight;var numberOfSnowflakes=55;var resetPosition=false;function setup(){window.addEventListener("DOMContentLoaded",generateSnowflakes,false);window.addEventListener("resize",setResetFlag,false)}setup();function getSupportedPropertyName(b){for(var a=0;a<b.length;a++){if(typeof document.body.style[b[a]]!="undefined"){return b[a]}}return null}function Snowflake(b,a,d,e,c){this.element=b;this.radius=a;this.speed=d;this.xPos=e;this.yPos=c;this.counter=0;this.sign=Math.random()<0.5?1:-1;this.element.style.opacity=0.5+Math.random();this.element.style.fontSize=4+Math.random()*40+"px"}Snowflake.prototype.update=function(){this.counter+=this.speed/5000;this.xPos+=this.sign*this.speed*Math.cos(this.counter)/40;this.yPos+=Math.sin(this.counter)/40+this.speed/30;setTranslate3DTransform(this.element,Math.round(this.xPos),Math.round(this.yPos));if(this.yPos>browserHeight){this.yPos=-50}};function setTranslate3DTransform(a,c,b){var d="translate3d("+c+"px, "+b+"px, 0)";a.style[transformProperty]=d}function generateSnowflakes(){var b=document.querySelector(".snowflake");var h=b.parentNode;browserWidth=document.documentElement.clientWidth;browserHeight=document.documentElement.clientHeight;for(var d=0;d<numberOfSnowflakes;d++){var j=b.cloneNode(true);h.appendChild(j);var e=getPosition(50,browserWidth);var a=getPosition(50,browserHeight);var c=5+Math.random()*40;var g=4+Math.random()*10;var f=new Snowflake(j,g,c,e,a);snowflakes.push(f)}h.removeChild(b);moveSnowflakes()}function moveSnowflakes(){for(var b=0;b<snowflakes.length;b++){var a=snowflakes[b];a.update()}if(resetPosition){browserWidth=document.documentElement.clientWidth;browserHeight=document.documentElement.clientHeight;for(var b=0;b<snowflakes.length;b++){var a=snowflakes[b];a.xPos=getPosition(50,browserWidth);a.yPos=getPosition(50,browserHeight)}resetPosition=false}requestAnimationFrame(moveSnowflakes)}function getPosition(b,a){return Math.round(-1*b+Math.random()*(a+2*b))}function setResetFlag(a){resetPosition=true};
+            //]]>
+        </script>
+</script>
 </body>
-<script src="app.js"></script>
 </html>
